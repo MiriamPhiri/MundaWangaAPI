@@ -20,6 +20,6 @@ email: string;
 @Column()
 phone_number: number;
 
-@Column()
+@Column({default: ''})
 password: string;
 }
