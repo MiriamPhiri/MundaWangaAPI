@@ -34,4 +34,14 @@ export class AuthService {
             access_token: await this.jwtService.signAsync(payload)
         };
     }
+
+    async decodeToken(token: {
+        access_token: string
+    }): Promise<{
+        sub: number;
+        username: string;
+    }>{
+
+        return this.jwtService.decode(token.access_token);
+    }
 }

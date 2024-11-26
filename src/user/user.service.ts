@@ -38,5 +38,18 @@ export class UserService {
         return this.userRepository.findOne({where:{username}});
     }
 
+    findUserByUsernameNoPassword(username: string): Promise<User | null>{
+        return this.userRepository.findOne({
+            select: {
+                id: true,
+                name:true,
+                dob: true,
+                username: true,
+                email: true,
+                phone_number:true,
+                password: false,
+            },
+            where:{username}});
+    }
     
 }
