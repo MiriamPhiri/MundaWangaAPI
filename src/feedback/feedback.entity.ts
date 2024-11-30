@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "src/user/user.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Feedback{
@@ -6,9 +7,9 @@ export class Feedback{
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    user_id: number;
-
     @Column({type: 'text'})
     message: string;
+
+    @ManyToOne(()=> User, (user)=>user.feedback)
+    user: User;
 }
