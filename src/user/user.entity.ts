@@ -25,6 +25,8 @@ phone_number: number;
 @Column({default: ''})
 password: string;
 
+@Column({default: 'farmer'})
+role: string;
 
 @OneToMany(()=>Feedback,(feedback : Feedback)=> {feedback.user} )
 feedback: Feedback[];
