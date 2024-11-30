@@ -10,6 +10,9 @@ id: number;
 @Column()
 request: 'Account-Deletion' | 'Password-Reset';
 
+@Column({default: false})
+fulfilled: boolean;
+
 @ManyToOne(()=>User , (user: User )=> {user.account_requests} )
 user: User;
 }
