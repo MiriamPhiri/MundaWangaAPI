@@ -51,5 +51,9 @@ export class UserService {
             },
             where:{username}});
     }
+
+    deleteUserById(id: number){
+        return this.userRepository.delete(id);
+    }
     
 }
