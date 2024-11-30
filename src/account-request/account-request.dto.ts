@@ -3,7 +3,7 @@ export type AccountRequestDto = {
 
 request: 'Account-Deletion' | 'Password-Reset',
 
-fulfilled: boolean,
+fulfilled?: boolean,
 
 user: {
     username: string,
