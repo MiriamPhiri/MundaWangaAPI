@@ -1,3 +1,4 @@
+import { AccountRequest } from "src/account-request/account-request.entity";
 import { Feedback } from "src/feedback/feedback.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -27,4 +28,8 @@ password: string;
 
 @OneToMany(()=>Feedback,(feedback : Feedback)=> {feedback.user} )
 feedback: Feedback[];
+
+@OneToMany(()=>AccountRequest,(account_request : AccountRequest)=> {account_request.user} )
+account_requests: AccountRequest[];
+
 }
