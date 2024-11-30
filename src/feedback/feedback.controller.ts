@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { FeedbackService, TFeedback } from './feedback.service';
 
 @Controller('feedback')
@@ -11,5 +11,10 @@ export class FeedbackController {
         @Body() feedbackDto: TFeedback
     ){
         return this.feedbackService.createFeedback(feedbackDto);
+    }
+
+    @Get()
+    getFeedBack(){
+        return this.feedbackService.findAllFeedBack();
     }
 }
